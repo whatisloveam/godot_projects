@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxgppfpj8s7lv"]
+
+[ext_resource type="Texture2D" uid="uid://b6wbhqw8m2idb" path="res://Car/Car.png" id="1_ak3kt"]
+[ext_resource type="Script" path="res://Car/Wheel.gd" id="2_gyby6"]
+[ext_resource type="Texture2D" uid="uid://bqjka7qvjmfhr" path="res://Car/bike-tire.png" id="2_rt6gy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvpw4"]
+radius = 30.1496
+
+[node name="Car" type="Node2D"]
+
+[node name="Field" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Field"]
+color = Color(0.847059, 0.411765, 0.345098, 1)
+polygon = PackedVector2Array(13, 251, 56, 481, 516, 585, 781, 548, 959, 287, 1068, 195, 1155, 266, 1175, 459, 1192, 524, 767, 698, 2, 644)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Field"]
+polygon = PackedVector2Array(12, 255, 55, 482, 518, 586, 781, 550, 959, 288, 1067, 196, 1159, 268, 1173, 457, 1190, 521, 770, 696, 1, 644)
+
+[node name="Car" type="RigidBody2D" parent="."]
+position = Vector2(278, 89)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Car"]
+texture = ExtResource("1_ak3kt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Car"]
+polygon = PackedVector2Array(-52, 58, 51, 58, 55, 36, 70, 22, 90, 22, 106, 35, 110, 54, 119, 46, 127, 45, 125, -2, 115, 2, 68, -12, 45, -41, 36, -37, 54, -13, -24, -12, -38, -12, -107, -12, -116, -2, -116, 33, -125, 36, -125, 44, -114, 47, -109, 54, -105, 35, -92, 22, -73, 21, -58, 30)
+
+[node name="LeftJoint" type="PinJoint2D" parent="Car"]
+position = Vector2(-83, 62)
+node_a = NodePath("..")
+node_b = NodePath("Wheel")
+softness = 10.0
+metadata/_edit_group_ = true
+
+[node name="Wheel" type="RigidBody2D" parent="Car/LeftJoint"]
+script = ExtResource("2_gyby6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car/LeftJoint/Wheel"]
+texture = ExtResource("2_rt6gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car/LeftJoint/Wheel"]
+shape = SubResource("CircleShape2D_rvpw4")
+
+[node name="RightJoint" type="PinJoint2D" parent="Car"]
+position = Vector2(83, 65)
+node_a = NodePath("..")
+node_b = NodePath("Wheel")
+softness = 10.0
+metadata/_edit_group_ = true
+
+[node name="Wheel" type="RigidBody2D" parent="Car/RightJoint"]
+script = ExtResource("2_gyby6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Car/RightJoint/Wheel"]
+texture = ExtResource("2_rt6gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car/RightJoint/Wheel"]
+shape = SubResource("CircleShape2D_rvpw4")
+
+[node name="Camera2D" type="Camera2D" parent="Car"]
