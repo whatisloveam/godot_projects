@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://h4nk383i1lvh"]
+
+[ext_resource type="Script" path="res://FlappyBird/Bird.gd" id="1_be143"]
+[ext_resource type="Texture2D" uid="uid://cgdckmfsh0imv" path="res://FlappyBird/flappy-bird.png" id="1_wgxke"]
+[ext_resource type="PackedScene" uid="uid://b6kwtepqrus2j" path="res://FlappyBird/Pipe.tscn" id="3_ujyha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ram5k"]
+radius = 30.8058
+
+[node name="FlappyBird" type="Node2D"]
+
+[node name="Bird" type="CharacterBody2D" parent="."]
+position = Vector2(113, 240)
+script = ExtResource("1_be143")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_wgxke")
+
+[node name="Area2D" type="Area2D" parent="Bird"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird/Area2D"]
+shape = SubResource("CircleShape2D_ram5k")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_ujyha")]
+position = Vector2(276, 325)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_ujyha")]
+position = Vector2(565, 251)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("3_ujyha")]
+position = Vector2(831, 357)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("3_ujyha")]
+position = Vector2(1067, 227)
