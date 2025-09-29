@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://h4nk383i1lvh"]
+[gd_scene load_steps=8 format=3 uid="uid://h4nk383i1lvh"]
 
+[ext_resource type="Script" path="res://FlappyBird/FlappyBird.gd" id="1_43mq5"]
 [ext_resource type="Script" path="res://FlappyBird/Bird.gd" id="1_be143"]
 [ext_resource type="Texture2D" uid="uid://cgdckmfsh0imv" path="res://FlappyBird/flappy-bird.png" id="1_wgxke"]
 [ext_resource type="PackedScene" uid="uid://b6kwtepqrus2j" path="res://FlappyBird/Pipe.tscn" id="3_ujyha"]
@@ -7,7 +8,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ram5k"]
 radius = 30.8058
 
+[sub_resource type="LabelSettings" id="LabelSettings_j8mv3"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyqkt"]
+font_size = 100
+font_color = Color(0.972549, 0.490196, 0.258824, 1)
+
 [node name="FlappyBird" type="Node2D"]
+script = ExtResource("1_43mq5")
 
 [node name="Bird" type="CharacterBody2D" parent="."]
 position = Vector2(113, 240)
@@ -34,3 +43,23 @@ position = Vector2(831, 357)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("3_ujyha")]
 position = Vector2(1067, 227)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 29.0
+offset_right = 236.0
+offset_bottom = 100.0
+text = "Очки: 0"
+label_settings = SubResource("LabelSettings_j8mv3")
+
+[node name="StartGameLabel" type="Label" parent="."]
+offset_left = 176.0
+offset_top = 161.0
+offset_right = 956.0
+offset_bottom = 441.0
+text = "Нажми пробел, 
+чтобы начать"
+label_settings = SubResource("LabelSettings_qyqkt")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Bird/Area2D" to="Bird" method="_on_area_2d_body_entered"]
