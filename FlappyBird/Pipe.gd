@@ -6,3 +6,4 @@ func _physics_process(delta):
 		if position.x < -40:
 			position = Vector2(1200, randi_range(120,470))
 			$"..".score += 1
+

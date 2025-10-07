@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bak24mf6fw8dd"]
+
+[ext_resource type="Script" path="res://TopDownShooter/Player.gd" id="1_gk834"]
+[ext_resource type="Texture2D" uid="uid://cut40onayw5m6" path="res://TopDownShooter/manBlue_gun.png" id="1_uhcnk"]
+[ext_resource type="PackedScene" uid="uid://ux6dhham6vit" path="res://TopDownShooter/Bullet.tscn" id="2_t3xce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12f1m"]
+radius = 21.2132
+
+[node name="TopDownShooter" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(472, 257)
+script = ExtResource("1_gk834")
+Bullet = ExtResource("2_t3xce")
+metadata/_edit_group_ = true
+
+[node name="ManBlueGun" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_uhcnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_12f1m")
