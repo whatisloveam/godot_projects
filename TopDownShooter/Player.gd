@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var Bullet : PackedScene
 @export var hp = 100
 
+var destroyed_enemies = 0
+
 func _physics_process(delta):
 	var direction = Input.get_vector("a", "d", "w", "s")
 	velocity = direction * speed
@@ -20,6 +22,7 @@ func take_damage(amount):
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color.WHITE
 	print(hp)
+	$"../CanvasLayer/HP".text = str(hp)
 	if hp <= 0:
 		get_tree().reload_current_scene()
 		

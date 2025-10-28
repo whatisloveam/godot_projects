@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh5bi02nnhv6v"]
+
+[ext_resource type="Script" path="res://GeometryDash/Spike.gd" id="1_1m5xm"]
+[ext_resource type="Texture2D" uid="uid://chud4gfiulbxw" path="res://GeometryDash/RegularSpike01.webp" id="2_b746c"]
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_1m5xm")
+
+[node name="RegularSpike01" type="Sprite2D" parent="."]
+position = Vector2(61.3, -60.7)
+texture = ExtResource("2_b746c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(61.3, -60.7)
+polygon = PackedVector2Array(-61, 61, 0, -60, 60, 61)

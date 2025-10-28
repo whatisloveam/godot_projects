@@ -12,6 +12,9 @@ func _on_body_entered(body):
 		body.hp = body.hp - 1
 		if body.hp <= 0:
 			body.queue_free()
+			$"../Player".destroyed_enemies += 1
+			if $"../Player".destroyed_enemies == 3:
+				$"../Barrier".queue_free()
 	queue_free()
 
 func _on_timer_timeout():

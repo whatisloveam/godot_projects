@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca0403we4jtr2"]
+
+[ext_resource type="Script" path="res://GeometryDash/Flipper.gd" id="1_037nw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47x88"]
+size = Vector2(10, 78)
+
+[node name="Flipper" type="Area2D"]
+script = ExtResource("1_037nw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 11.0
+offset_bottom = 77.0
+color = Color(0.298039, 0.717647, 0.52549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 38)
+shape = SubResource("RectangleShape2D_47x88")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://bk1w54b25bar0"]
+
+[ext_resource type="Texture2D" uid="uid://df2ip1qlpgsgv" path="res://GeometryDash/RegularBlock01.webp" id="1_0uw12"]
+[ext_resource type="Script" path="res://GeometryDash/Player.gd" id="3_1lr1j"]
+[ext_resource type="Texture2D" uid="uid://duk7exgytfbku" path="res://GeometryDash/Cube004.webp" id="3_smsid"]
+[ext_resource type="PackedScene" uid="uid://bh5bi02nnhv6v" path="res://GeometryDash/spike.tscn" id="4_c0h1b"]
+[ext_resource type="PackedScene" uid="uid://ca0403we4jtr2" path="res://GeometryDash/flipper.tscn" id="5_2l433"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lycah"]
+texture = ExtResource("1_0uw12")
+texture_region_size = Vector2i(122, 122)
+0:0/next_alternative_id = 5
+0:0/0 = 0
+0:0/0/modulate = Color(0.768627, 0.643137, 0.364706, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-61, -61, 61, -61, 61, 61, -61, 61)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_necu7"]
+tile_size = Vector2i(122, 122)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 4
+sources/1 = SubResource("TileSetAtlasSource_lycah")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c54i7"]
+radius = 60.6383
+
+[node name="GeometryDash" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -994.0
+offset_top = -800.0
+offset_right = 6952.0
+offset_bottom = 1845.0
+color = Color(0.14902, 0.380392, 0.215686, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_necu7")
+format = 2
+layer_0/tile_data = PackedInt32Array(655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 524310, 1, 0, 524311, 1, 0, 393244, 1, 0, 393245, 1, 0, 393246, 1, 0, 393247, 1, 0, -131026, 1, 0, -196561, 1, 0, -196560, 1, 0, -196559, 1, 0, -196558, 1, 0, -196557, 1, 0, -262095, 1, 0, -327631, 1, 0, -327630, 1, 0, -327629, 1, 0, -393165, 1, 0, -393164, 1, 0, -393163, 1, 0, -393162, 1, 0, -458698, 1, 0, 655362, 1, 0, 655361, 1, 0, 655360, 1, 0, 524312, 1, 0, 524313, 1, 0, 262178, 1, 0, 262179, 1, 0, 262180, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 1, 0, 262186, 1, 0, 131110, 1, 0, 131111, 1, 0, 131112, 1, 0, 131113, 1, 0, 131114, 1, 0, 131115, 1, 0, 131116, 1, 0, 131117, 1, 0, 589842, 1, 0, 589841, 1, 0, 589840, 1, 0, 589839, 1, 0, 589838, 1, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(1797, 907)
+script = ExtResource("3_1lr1j")
+metadata/_edit_group_ = true
+
+[node name="Cube004" type="Sprite2D" parent="Player"]
+modulate = Color(0.815686, 0.588235, 0.882353, 1)
+texture = ExtResource("3_smsid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_c54i7")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Spike" parent="." instance=ExtResource("4_c0h1b")]
+position = Vector2(2317, 1220)
+
+[node name="Spike2" parent="." instance=ExtResource("4_c0h1b")]
+position = Vector2(2561, 1220)
+
+[node name="Flipper" parent="." instance=ExtResource("5_2l433")]
+position = Vector2(3869, 620)
