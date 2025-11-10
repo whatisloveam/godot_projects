@@ -5,4 +5,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
+		if get_parent().name == "Platformer":
+			get_parent().collect()
 		queue_free()
