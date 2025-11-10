@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk1w54b25bar0"]
+[gd_scene load_steps=10 format=3 uid="uid://bk1w54b25bar0"]
 
 [ext_resource type="Texture2D" uid="uid://df2ip1qlpgsgv" path="res://GeometryDash/RegularBlock01.webp" id="1_0uw12"]
 [ext_resource type="Script" path="res://GeometryDash/Player.gd" id="3_1lr1j"]
 [ext_resource type="Texture2D" uid="uid://duk7exgytfbku" path="res://GeometryDash/Cube004.webp" id="3_smsid"]
 [ext_resource type="PackedScene" uid="uid://bh5bi02nnhv6v" path="res://GeometryDash/spike.tscn" id="4_c0h1b"]
 [ext_resource type="PackedScene" uid="uid://ca0403we4jtr2" path="res://GeometryDash/flipper.tscn" id="5_2l433"]
+[ext_resource type="PackedScene" uid="uid://dt8vjkfv7m4ls" path="res://GeometryDash/coin.tscn" id="6_to77s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lycah"]
 texture = ExtResource("1_0uw12")
@@ -59,10 +60,22 @@ shape = SubResource("CircleShape2D_c54i7")
 zoom = Vector2(0.5, 0.5)
 
 [node name="Spike" parent="." instance=ExtResource("4_c0h1b")]
-position = Vector2(2317, 1220)
+position = Vector2(2468, 1708)
 
 [node name="Spike2" parent="." instance=ExtResource("4_c0h1b")]
 position = Vector2(2561, 1220)
 
 [node name="Flipper" parent="." instance=ExtResource("5_2l433")]
-position = Vector2(3869, 620)
+position = Vector2(5553, 116)
+
+[node name="Coin" parent="." instance=ExtResource("6_to77s")]
+position = Vector2(2936, 890)
+
+[node name="Coin2" parent="." instance=ExtResource("6_to77s")]
+position = Vector2(3800, 630)
+
+[node name="Coin3" parent="." instance=ExtResource("6_to77s")]
+position = Vector2(4484, 370)
+
+[node name="Coin4" parent="." instance=ExtResource("6_to77s")]
+position = Vector2(5076, 116)
